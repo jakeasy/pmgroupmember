@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medit PM Group Contacts</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #004d99;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .intro p:first-child {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #004d99;
+        }
+
+        #search-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        #searchInput {
+            width: 80%;
+            max-width: 500px;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        #searchInput:focus {
+            border-color: #007bff;
+        }
+
+        .team-section {
+            margin-bottom: 40px;
+        }
+
+        .team-header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .team-header h3 {
+            margin: 0;
+            font-size: 1.4em;
+        }
+        .team-header a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .responsive-table {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            border: 1px solid #e0e0e0;
+            background-color: #f9f9f9;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #eaf4ff;
+            color: #333;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f1f8ff;
+        }
+
+        .manager-info {
+            font-weight: bold;
+            color: #0056b3;
+        }
+
+        .roles {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+            white-space: pre-wrap;
+        }
+
+        .no-results {
+            text-align: center;
+            color: #999;
+            margin-top: 20px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Members of the PM Group</h1>
+    <div class="intro">
+        <p>R&D CTO : Michael Lee | PM Group Director : 이정근 Jake Lee</p>
+        <p>Here is a list of the PMs responsible for each product. If you have any questions, please contact the relevant PM.</p>
+    </div>
+
+    <hr>
+
+    <div id="search-container">
+        <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="담당자 또는 제품명으로 검색...">
+    </div>
+
+    <div class="team-section">
+        <div class="team-header">
+            <h3>Link Product Team (링크프로덕트팀)</h3>
+            <a href="mailto:pm.link@medit.com">pm.link@medit.com</a>
+        </div>
+        <div class="responsive-table">
+            <table class="pm-table">
+                <thead>
+                    <tr>
+                        <th>담당자</th>
+                        <th>담당 제품 및 역할</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="manager-info">태희재 Austin Tae (팀 리더)</td>
+                        <td>Team Management</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">전설아 Seolah Jeon</td>
+                        <td>Medit Link Express, Medit Orthodontic Suite, Medit Link</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">이예슬 yeseul.lee</td>
+                        <td>Medit Link China, Medit Link</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">이희선 heesun.lee</td>
+                        <td>Medit Link Express, Medit Link</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">서은정 Eunjeong Seo</td>
+                        <td>Medit Link Enterprise, UI/UX Designer</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">김미주 Miju Kim</td>
+                        <td>UI/UX Designer</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="team-section">
+        <div class="team-header">
+            <h3>Apps Product Team (앱스프로덕트팀)</h3>
+            <a href="mailto:pm.apps@medit.com">pm.apps@medit.com</a>
+        </div>
+        <div class="responsive-table">
+            <table class="pm-table">
+                <thead>
+                    <tr>
+                        <th>담당자</th>
+                        <th>담당 제품 및 역할</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="manager-info">김진영 Jinyoung Kim (팀 리더)</td>
+                        <td>Team Management</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">김병춘 Byeongchun Kim</td>
+                        <td>New Apps, Patient Monitoring, Medit ClinicCAD</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">고기남 Kinam Ko</td>
+                        <td>Medit Surgical Guide, Medit Temporaries, Scan for Clinics, Scan for Labs, Medit Margin Lines, Medit Caries Detection, Medit Crown Fit</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">장건우 David Jang</td>
+                        <td>Medit Checkpoint, Medit Design, Medit Smile Design, Medit DCM Converter</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">안덕호 Deok Ahn</td>
+                        <td>Medit Face Scanning, Medit AuraVue, Medit Model Builder, Medit Ortho Simulation, Medit Splints, Medit Prep Analyzer, Medit Occlusion Analyzer</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">최고은</td>
+                        <td>UI/UX Designer</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">김다민 damin.kim</td>
+                        <td>UI/UX Designer</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">김은혜 eunhye.kim (휴직)</td>
+                        <td>UI/UX Designer</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="team-section">
+        <div class="team-header">
+            <h3>Scan Product Team (스캔프로덕트팀)</h3>
+            <a href="mailto:pm.scan@medit.com">pm.scan@medit.com</a>
+        </div>
+        <div class="responsive-table">
+            <table class="pm-table">
+                <thead>
+                    <tr>
+                        <th>담당자</th>
+                        <th>담당 제품 및 역할</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="manager-info">유재민 Jaemin You (팀 리더)</td>
+                        <td>Team Management</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">이상훈 Sanghoon Lee</td>
+                        <td>MO3 (Primary)</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">이동희 Donghee Lee</td>
+                        <td>MO4 (Secondary), MO4 (Primary)</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">전진표 Jinpyo Chun</td>
+                        <td>MO3 (Secondary), Industrial Designer</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">이정 jung.lee</td>
+                        <td>Industrial Designer</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">허진원 Jinwon Heo</td>
+                        <td>Industrial Designer</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="team-section">
+        <div class="team-header">
+            <h3>Growth Product Team (그로스프로덕트팀)</h3>
+            <a href="mailto:pm.growth@medit.com">pm.growth@medit.com</a>
+        </div>
+        <div class="responsive-table">
+            <table class="pm-table">
+                <thead>
+                    <tr>
+                        <th>담당자</th>
+                        <th>담당 제품 및 역할</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="manager-info">김현중 hyunjung.kim (팀 리더)</td>
+                        <td>Team Management</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">유진혁 Jinhyuk Yoo</td>
+                        <td>Medit Shop, Data Analyst, Data (w. Medit Link), Hubspot, Data Warehouse</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">한동훈 Donghun Han</td>
+                        <td>Product Manager, MEDIT M, Redeem Code (w. Biz Admin)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="team-section">
+        <div class="team-header">
+            <h3>Platform Strategy Team (플랫폼전략팀)</h3>
+            <a href="mailto:platform_strategy@medit.com">platform_strategy@medit.com</a>
+        </div>
+        <div class="responsive-table">
+            <table class="pm-table">
+                <thead>
+                    <tr>
+                        <th>담당자</th>
+                        <th>담당 제품 및 역할</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="manager-info">김민선 minsunkim (팀 리더)</td>
+                        <td>Team Management</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">이효현 Hyohyun Lee</td>
+                        <td>Platform Business Strategy, Monetization (Medit Apps, Membership), Improving the user environment, Partnership Strategy</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">황윤하 yunha.hwang</td>
+                        <td>Platform Service Planner, Monetization, Planning / Operation, Improving the user environment for clinics and labs</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">김동수 Dongsoo Kim</td>
+                        <td>Partnership Manager, 3rd party Integration, Validation & Integration, Partnership communication (Dev & Commercial), Platform Service Planner, Tighter Integration, Driving business growth through 3rd party partnerships</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="team-section">
+        <div class="team-header">
+            <h3>Writing Team (라이팅팀)</h3>
+            <a href="mailto:pm.writing@medit.com">pm.writing@medit.com</a>
+        </div>
+        <div class="responsive-table">
+            <table class="pm-table">
+                <thead>
+                    <tr>
+                        <th>담당자</th>
+                        <th>담당 제품 및 역할</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="manager-info">이정근 Jake Lee (팀 리더)</td>
+                        <td>Team Management</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">양태규 Taekyu Yang</td>
+                        <td>Localization & Technical & UX Writing, Medit Link, Medit Link Express, MEDIT M, HW Guides</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">Angelina Golubtsova</td>
+                        <td>Technical & UX Writing, Medit Apps, Scan for Clinics/Labs, Certification Documentation</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">김민정 minjeong.kim</td>
+                        <td>Localization, Medit Link, Scan for Clinics/Labs, Medit Apps</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="team-section">
+        <div class="team-header">
+            <h3>Education Team (교육팀)</h3>
+            <a href="mailto:pm.education@medit.com">pm.education@medit.com</a>
+        </div>
+        <div class="responsive-table">
+            <table class="pm-table">
+                <thead>
+                    <tr>
+                        <th>담당자</th>
+                        <th>담당 제품 및 역할</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="manager-info">남재용 Jaeyong Nam (팀 리더)</td>
+                        <td>Team Management</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">문기담 Kidam Mun</td>
+                        <td>Help Center</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">문장석 Jangseok Moon</td>
+                        <td>Medit Academy</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">김민수 Min Su Kim</td>
+                        <td>Medit Academy, English Proofreader & Editor</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">박세영 SeYoung Park</td>
+                        <td>Content Creation</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">김승이 Seungyi Kim (휴직)</td>
+                        <td>Content Creation</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">박태흠 taeheum.park</td>
+                        <td>Content Creation</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">이효향 Hyohyang Lee</td>
+                        <td>Content Creation</td>
+                    </tr>
+                    <tr>
+                        <td class="manager-info">주은지 Eunji Ju (휴직)</td>
+                        <td>Content Creation</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="no-results" id="noResults">검색 결과가 없습니다.</div>
+</div>
+
+<script>
+function filterTable() {
+    const input = document.getElementById("searchInput");
+    const filter = input.value.toUpperCase().replace(/\s/g, ''); // 띄어쓰기 제거 후 대문자로 변환
+    const tables = document.querySelectorAll(".pm-table tbody");
+    const noResults = document.getElementById("noResults");
+    let resultsFound = false;
+
+    tables.forEach(tableBody => {
+        let teamHasResults = false;
+        const rows = tableBody.getElementsByTagName("tr");
+        for (let i = 0; i < rows.length; i++) {
+            const rowText = rows[i].textContent.toUpperCase().replace(/\s/g, ''); // 띄어쓰기 제거 후 대문자로 변환
+            if (rowText.includes(filter)) {
+                rows[i].style.display = "";
+                resultsFound = true;
+                teamHasResults = true;
+            } else {
+                rows[i].style.display = "none";
+            }
+        }
+        // 팀 섹션 전체를 숨기거나 보이게 합니다.
+        const teamSection = tableBody.closest('.team-section');
+        if (teamSection) {
+            teamSection.style.display = teamHasResults || filter === '' ? 'block' : 'none';
+        }
+    });
+
+    if (resultsFound || filter === '') {
+        noResults.style.display = "none";
+    } else {
+        noResults.style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>
